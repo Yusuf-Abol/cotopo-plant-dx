@@ -1,4 +1,4 @@
-# **🌱Multi-Crop Multi-Task CNN**
+# **🌱COPOTO Plant DX**
 
 Predict Crop Type & Disease from Leaf Images
 
