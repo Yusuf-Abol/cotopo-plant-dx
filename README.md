@@ -1,5 +1,4 @@
 ---
-
 # 🌱 Multi-Crop Multi-Task CNN
 
 **Predict Crop Type & Disease from Leaf Images**
