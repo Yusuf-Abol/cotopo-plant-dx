@@ -1,50 +1,22 @@
----
-# 🌱 Multi-Crop Multi-Task CNN
+# **🌱Multi-Crop Multi-Task CNN**
 
-**Predict Crop Type & Disease from Leaf Images**
-
----
-
-## **Project Snapshot**
-
-| Feature          | Description                                                               |
-| ---------------- | ------------------------------------------------------------------------- |
-| **Goal**         | Predict both crop and disease in a single CNN                             |
-| **Crops**        | Tomato, Potato, Corn                                                      |
-| **Diseases**     | Late Blight, Early Blight, Common Rust, Gray Leaf Spot, Healthy, etc.     |
-| **Architecture** | Shared CNN backbone (ResNet/EfficientNet) with two heads (crop & disease) |
-| **Deployment**   | API-ready, app integration, LLM-guided advice                             |
+Predict Crop Type & Disease from Leaf Images
 
 ---
 
-## **Why This Project?**
+## **Overview**
 
-* **Unified multi-crop model** → fewer models to maintain
-* **Multi-task learning** → predicts crop + disease simultaneously
-* **Handles class imbalance** → weighted loss & balanced sampling
-* **Interpretable** → Grad-CAM shows which leaf areas drive predictions
-* **Real-world relevance** → helps smallholder farmers detect diseases early
+This project uses a **single CNN** to predict both **crop type** (Tomato, Potato, Corn) and **disease** (e.g., Late Blight, Early Blight, Healthy) from leaf images. It’s designed to be **scalable, interpretable, and deployable**.
 
 ---
 
-## **Visual Pipeline**
+## **Features**
 
-```
-[Leaf Image]
-      │
-      ▼
-[CNN Backbone: ResNet/EfficientNet]
-      │
- ┌────┴────┐
- │         │
-Crop Head  Disease Head
-(Aux)      (Primary)
- │          │
-Crop Pred  Disease Pred
-      │
-      ▼
- Multi-Task Loss → Backprop
-```
+* Multi-task CNN with **crop head (auxiliary)** and **disease head (primary)**
+* Handles **class imbalance** with weighted loss and balanced sampling
+* **Grad-CAM visualizations** for interpretability
+* **API-ready** for web or mobile apps
+* Supports **LLM integration** for actionable guidance
 
 ---
 
@@ -66,7 +38,7 @@ dataset_crop/
     └── Corn/
 ```
 
-**Labels CSV (`labels.csv`)**
+Labels CSV example:
 
 | filename     | crop   | disease     | split |
 | ------------ | ------ | ----------- | ----- |
@@ -77,68 +49,32 @@ dataset_crop/
 
 ## **Getting Started**
 
-1. **Clone Repo**
+1. Clone the repo:
 
 ```bash
 git clone https://github.com/username/multi-crop-cnn.git
 cd multi-crop-cnn
 ```
 
-2. **Install Dependencies**
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Prepare Dataset**
-
-   * Organize images by crop folder
-   * Create CSV with disease labels & splits
-
-4. **Train Model**
-
-```python
-# Load Dataset & Dataloader
-# Initialize MultiTaskCNN
-# Train with weighted multi-task loss: L_total = α*L_crop + β*L_disease
-```
-
-5. **Inference & Deployment**
-
-* Predict crop + disease for new images
-* Serve via FastAPI / Flask
-* Optionally, connect to LLM for actionable guidance
+3. Prepare dataset (folder + CSV)
+4. Train model and run inference
 
 ---
 
-## **Evaluation & Visualization**
+## **License**
 
-* **Metrics:** Accuracy, F1-score per crop/disease
-* **Visuals:** Confusion matrices, Grad-CAM attention maps
-* **Comparisons:** Single-stage vs multi-task CNN
+MIT License
 
 ---
 
-## **Social Impact**
+This is short, clear, and portfolio-friendly.
 
-* Empowers smallholder farmers with **real-time disease detection**
-* Supports **food security** and **sustainable farming**
-* Low-cost, scalable solution suitable for **low-resource settings**
+I can also **make an even snappier “1-minute read” version** suitable for GitHub’s front page if you want.
 
----
-
-## **Future Work**
-
-* Add more crops & rare diseases
-* Experiment with attention mechanisms / vision transformers
-* Transfer learning across crops
-* Integrate real-field images for robustness
-
----
-
-## **Contact / Demo**
-
-* GitHub: [Yusuf Abol](https://github.com/Yusuf-Abol)
-* Demo app: Streamlit/Gradio coming soon
-
----
+Do you want me to do that?
